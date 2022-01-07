@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 
 html,
 body {
@@ -62,3 +64,21 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.logo {
+  color: #E62C08;
+
+  font-weight: 500;
+  margin-left: 10px;
+  font-size: 1.6rem;
+  font-family: "Permanent Marker", cursive;
+
+}
+
+.post-card img {
+  height: 200px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100vh;
+}
+

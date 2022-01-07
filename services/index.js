@@ -9,7 +9,7 @@ export const getPosts = async () => {
         edges {
           cursor
           node {
-            authors {
+            author {
               bio
               name
               id

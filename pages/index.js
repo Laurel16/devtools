@@ -11,12 +11,14 @@ export default function Home({posts}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className ="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-8 col-span-1">
+        <div className="lg:col-span-10 col-span-1">
+        <div className="p-10 grid grid-cols-1 md:grid-cols-1 lg-grid-cols-2 xl:grid-cols-3 gap-5">
         {posts.map((post, index) => (<PostCard post ={post.node} key={index} />
         ))}
+        </div>
       </div>
   
-      <div className="lg:col-span-4 col-span-1">
+      <div className="lg:col-span-2 col-span-1">
             <div className="lg:sticky relative top-8">
               <PostWidget/>
               <Categories/>
