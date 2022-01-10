@@ -1,11 +1,13 @@
 import React from 'react';
 import moment from 'moment';
 import { RichText } from '@graphcms/rich-text-react-renderer';
+import Link from 'next/link';
+
 
 const PostDetail = ({ post }) => {
     const test = post.content.raw.children
     const test2 = test.children
-    console.log("voici")
+    console.log(test)
 
   
 
@@ -39,33 +41,42 @@ console.log(content)
           </div>
           <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
           <RichText
-      content={content}
-      renderers={{
-        h3: ({ children }) => <h3 className="text-xl font-semibold mb-4">{children}</h3>,
-        h4: ({ children }) => <h4 className="text-md font-semibold mb-4">{children}</h4>,
-        a: ({ children, openInNewTab, href, rel, ...rest }) => {
-          if (href.match(/^https?:\/\/|^\/\//i)) {
-            return (
-              <a
-                href={href}
-                target={openInNewTab ? '_blank' : '_self'}
-                rel={rel || 'noopener noreferrer'}
-                className='text-red-700'
-                {...rest}
-              >
-                {children}
-              </a>
-            );
-          }
+            content={content}
+            renderers={{
+              h3: ({ children }) => <h3 className="text-xl font-semibold mb-4">{children}</h3>,
+              h4: ({ children }) => <h4 className="text-md font-semibold mb-4">{children}</h4>,
+              a: ({ children, openInNewTab, href, rel, ...rest }) => {
+                if (href.match(/^https?:\/\/|^\/\//i)) {
+                  return (
+                    <a
+                      href={href}
+                      target={openInNewTab ? '_blank' : '_self'}
+                      rel={rel || 'noopener noreferrer'}
+                      className='text-red-700'
+                      {...rest}
+                    >
+                      {children}
+                    </a>
+                  );
+                }
 
-          return (
-            <Link href={href}>
-              <a {...rest}>{children}</a>
-            </Link>
-          );
-        },
-      }}
-    />
+                return (
+                  <Link href={href}>
+                    <a {...rest}>{children}</a>
+                  </Link>
+                );
+              },
+            }}
+          />
+          <div className="px-2 pt-4 pb-2 tags-post-details">
+                {post.tags.map((tag, index) => 
+                 <Link 
+                 key={index} 
+                 href={`/tag/${tag.slug}`}>
+                 {tag.name}
+                </Link> 
+                )}
+            </div>
         </div>
       </div>
 

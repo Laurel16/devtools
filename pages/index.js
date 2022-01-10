@@ -11,7 +11,28 @@ export default function Home({posts}) {
       <Head>
         <title>CMS</title>
         <link rel="icon" href="/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"></link>
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+            media="print"
+            onLoad="this.media='all'"
+          />
+          <noscript>
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+            />
+          </noscript>
       </Head>
       <div className ="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-10 col-span-1">
