@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fontsource/permanent-marker": "^4.5.0",
     "@graphcms/rich-text-react-renderer": "^0.4.1",
     "graphql": "^16.2.0",
     "graphql-request": "^3.7.0",
