@@ -12,14 +12,15 @@ const PostWidget = ({ categories, slug }) => {
   useEffect(() => {
     if (slug) {
       getSimilarPosts(categories, slug).then((result) => {
-        setRelatedPosts(result);
+        setRelatedPosts(result.sort((a, b) => b.createdAt > a.createdAt ? 1 : -1));
       });
     } else {
       getRecentPosts().then((result) => {
-        setRelatedPosts(result);
+        setRelatedPosts(result.sort((a, b) => b.createdAt > a.createdAt? 1 : -1 ));
       });
     }
   }, [slug]);
+
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-4 pb-12 mb-8">
