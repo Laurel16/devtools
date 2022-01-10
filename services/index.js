@@ -18,6 +18,7 @@ export const getPosts = async () => {
               }
             }
             createdAt
+            updatedAt
             slug
             title
             excerpt
@@ -25,6 +26,10 @@ export const getPosts = async () => {
               url
             }
             categories {
+              name
+              slug
+            }
+            tags {
               name
               slug
             }
@@ -54,6 +59,21 @@ export const getCategories = async () => {
   return result.categories;
 };
 
+export const getTags = async () => {
+  const query = gql`
+    query Tags {
+        tags {
+          name
+          slug
+        }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.tags;
+};
+
 export const getPostDetails = async (slug) => {
   const query = gql`
     query GetPostDetails($slug : String!) {
@@ -71,11 +91,16 @@ export const getPostDetails = async (slug) => {
           }
         }
         createdAt
+        updatedAt
         slug
         content {
           raw
         }
         categories {
+          name
+          slug
+        }
+        tags {
           name
           slug
         }
@@ -167,6 +192,51 @@ export const getCategoryPost = async (slug) => {
               url
             }
             categories {
+              name
+              slug
+            }
+            tags {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.postsConnection.edges;
+};
+
+export const getTagPost = async (slug) => {
+  const query = gql`
+    query GetCategoryPost($slug: String!) {
+      postsConnection(where: {tags_some: {slug: $slug}}) {
+        edges {
+          cursor
+          node {
+            author {
+              bio
+              name
+              id
+              photo {
+                url
+              }
+            }
+            createdAt
+            slug
+            title
+            excerpt
+            image {
+              url
+            }
+            categories {
+              name
+              slug
+            }
+            tags {
               name
               slug
             }

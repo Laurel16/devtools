@@ -16,14 +16,12 @@ function PostCard({post}) {
                 <p className="text-gray-700 text-base min-h-[100]">
                 {post.excerpt}
                 </p>
-                <p className="text-gray-700 text-base min-h-[100]">
-                {post.categories.map(category => <div>{category.name}</div>)}
-                </p>
                 </div>
                 <div className="px-6 pt-4 pb-2">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                {post.tags.map(tag => 
+                <span className="inline-block rounded-full px-2 py-1 text-sm text-gray-700  mb-2">
+                    {tag.name}
+                </span>)}
             </div>
         </div>
         </a>
