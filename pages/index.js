@@ -4,7 +4,6 @@ import { Categories, Tags, PostCard, PostWidget } from '../components'
 import {getPosts} from '../services'
 
 export default function Home({posts}) {
-  posts = posts.sort((a, b) => a.position > b.position ? 1 : -1 )
  
   return (
     <div className="container mx-auto px-10 mb-8">

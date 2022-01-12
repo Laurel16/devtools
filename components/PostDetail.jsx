@@ -45,6 +45,7 @@ console.log(content)
             renderers={{
               h3: ({ children }) => <h3 className="text-xl font-semibold mb-4">{children}</h3>,
               h4: ({ children }) => <h4 className="text-md font-semibold mb-4">{children}</h4>,
+              p: ({ children }) => <p className="text-md mb-4 text-justify">{children}</p>,
               a: ({ children, openInNewTab, href, rel, ...rest }) => {
                 if (href.match(/^https?:\/\/|^\/\//i)) {
                   return (
