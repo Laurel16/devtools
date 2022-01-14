@@ -10,7 +10,7 @@ export default function Home({posts}) {
     <div className="container mx-auto px-10 mb-8">
       <Head>
         <title>Devtools</title>
-        
+        <link rel="icon" href="/favicon.png" />
         <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
