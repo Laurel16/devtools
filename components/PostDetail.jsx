@@ -37,9 +37,12 @@ const PostDetail = ({ post }) => {
           <RichText
             content={content}
             renderers={{
+              h1: ({ children }) => <h1 className="text-xxl font-semibold mb-4">{children}</h1>,
               h3: ({ children }) => <h3 className="text-xl font-semibold mb-4">{children}</h3>,
               h4: ({ children }) => <h4 className="text-md font-semibold mb-4">{children}</h4>,
               p: ({ children }) => <p className="text-md mb-4 text-justify">{children}</p>,
+              ul: ({ children }) => <ul className="list-disc text-justify m-10">{children}</ul>,
+              li:({ children }) => <li>{children}</li>,
               a: ({ children, openInNewTab, href, rel, ...rest }) => {
                 if (href.match(/^https?:\/\/|^\/\//i)) {
                   return (
