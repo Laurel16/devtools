@@ -5,15 +5,9 @@ import Link from 'next/link';
 
 
 const PostDetail = ({ post }) => {
-    const test = post.content.raw.children
-    const test2 = test.children
-    console.log(test)
-
-  
-
-const content = post.content.raw
-
-console.log(content)
+    // const test = post.content.raw.children
+    // const test2 = test.children
+     const content = post.content.raw
 
   return (
     <>

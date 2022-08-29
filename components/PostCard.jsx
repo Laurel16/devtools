@@ -3,9 +3,6 @@ import Link from 'next/link';
 
 function PostCard({post}) {
 
-    console.log(post)
-    
-  
     return (
             <div>
             <a href={`/post/${post.slug}`}>

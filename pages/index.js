@@ -10,7 +10,7 @@ export default function Home({posts}) {
     <div className="container mx-auto px-10 mb-8">
       <Head>
         <title>Devtools</title>
-        <link rel="icon" href="/favicon.png" />
+
         <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
@@ -37,7 +37,7 @@ export default function Home({posts}) {
       <div className ="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-10 col-span-1">
         <div className="p-10 grid grid-cols-1 md:grid-cols-1 lg-grid-cols-2 xl:grid-cols-3 gap-5">
-        {posts.map((post, index) => (<PostCard post ={post.node} key={index} />
+        {posts.sort((a, b) => b.createdAt > a.createdAt? 1 : -1 ).map((post, index) => (<PostCard post ={post.node} key={index} />
         ))}
         </div>
       </div>
@@ -54,6 +54,8 @@ export default function Home({posts}) {
   </div>
   )
 }
+
+
 
 export async function getStaticProps() {
   const posts = (await getPosts()) || []
